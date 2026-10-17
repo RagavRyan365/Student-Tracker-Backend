@@ -1,3 +1,3 @@
 # Student-Tracker-Backend
-Tech - Nodejs + Expressjs
+Tech - Nodejs + Expressjs. 
 Data Base - PostgreSQL
