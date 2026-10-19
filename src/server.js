@@ -4,12 +4,16 @@ import cors from 'cors';
 dotenv.config();
 
 // Import routes
-import signupRoute from './Routes/signup.js';
-import signinRoute from './Routes/Signin.js';
+import signupRoute from './routes/signup.js';
+import signinRoute from './routes/signin.js';
+
+//Functions from other files
+
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
+//Middleware
 app.use(express.json());
 app.use(cors());
 
