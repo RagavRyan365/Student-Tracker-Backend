@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 dotenv.config();
 
 // Import routes
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 5000;
 //Middleware
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Use the imported routes
 app.use('/api/signup', signupRoute);

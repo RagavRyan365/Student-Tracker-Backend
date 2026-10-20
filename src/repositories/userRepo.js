@@ -1,9 +1,9 @@
 //Sign up and sign in Db operations centered here
 import pool from "../config/connectDB.js";
 
-async function createUser(name, email, hashedPassword) {
-  const query = 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *';
-  const values = [name, email, hashedPassword];
+async function createUser(id,email, hashedPassword) {
+  const query = 'INSERT INTO credentials (id, email, password) VALUES ($1, $2, $3) RETURNING *';
+  const values = [id, email, hashedPassword];
     try {
     const result = await pool.query(query, values);
     return result.rows[0]; // Return the created user
@@ -14,7 +14,7 @@ async function createUser(name, email, hashedPassword) {
 }
 
 async function getUserByEmail(email) {
-  const query = 'SELECT * FROM users WHERE email = $1';
+  const query = 'SELECT * FROM credentials WHERE email = $1';
   const values = [email];
 
   try {
