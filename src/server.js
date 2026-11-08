@@ -1,12 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import cookieParser from 'cookie-parser';
 dotenv.config();
 
 // Import routes
-import signupRoute from './routes/signup.js';
-import signinRoute from './routes/signin.js';
 
 //Functions from other files
 
@@ -17,11 +14,8 @@ const PORT = process.env.PORT || 5000;
 //Middleware
 app.use(express.json());
 app.use(cors());
-app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Use the imported routes
-app.use('/api/signup', signupRoute);
-app.use('/api/signin', signinRoute);
 
 // Health check route
 app.get('/', (req, res) => {
