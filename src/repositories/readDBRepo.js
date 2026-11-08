@@ -8,7 +8,7 @@ async function getClassCode(department,section,year){
 }
 
 async function getStudentsByClass(classCode){
-    const selectStudentsByClassQuery = "SELECT name,reg,rollno FROM students WHERE class = $1";
+    const selectStudentsByClassQuery = "SELECT name,reg AS registerno,rollno AS rollno FROM students WHERE class = $1";
     const students = await pool.query(selectStudentsByClassQuery,[classCode]);
     return students;
 }

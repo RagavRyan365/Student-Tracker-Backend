@@ -25,6 +25,8 @@ app.get('/api/health', (req, res) => {
 });
 
 //Other Route should come here...
+
+//Fetching Students list from DB based on "Department,Section, and Year"
 app.get("/students/:dept/:sec/:year",async(req,res)=>{
   const {dept,sec,year} = req.params;
   const classCode = await getClassCode(dept,sec,year);
