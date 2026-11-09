@@ -33,7 +33,7 @@ app.get("/students/:dept/:sec/:year",async(req,res)=>{
   if(classCode.rowCount <= 0)return res.status(400).json({error:"Class not exist"});
 
   const studentsList = await getStudentsByClass(classCode.rows[0].classcode);
-  return res.status(200).json(studentsList.rows);
+  return res.status(200).json({list:studentsList.rows,classCode:classCode.rows});
 });
 
 // Catch-all 404
