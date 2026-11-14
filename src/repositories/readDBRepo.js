@@ -13,7 +13,15 @@ async function getStudentsByClass(classCode){
     return students;
 }
 
+async function getSubjectList(){
+    const selectAllSubject = "SELECT subjectname FROM subjects";
+    const subjects = await pool.query(selectAllSubject);
+    return subjects;
+}
+
+
 export{
     getClassCode,
-    getStudentsByClass
+    getStudentsByClass,
+    getSubjectList
 }
