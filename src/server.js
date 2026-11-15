@@ -75,8 +75,6 @@ app.post("/api/mark/attendance",async(req,res)=>{
 //Is Attendance Already marked?
 app.get("/api/verify/attendance/:subjectCode/:classCode",async(req,res)=>{
   const {subjectCode,classCode} = req.params;
-  console.log(subjectCode);
-  console.log(classCode);
   const attendanceChecker = await checkAttendanceRecord(subjectCode,classCode);
   if(attendanceChecker.rows[0].count === '0'){
     return res.status(200).json({message:"No attendance marked"});
