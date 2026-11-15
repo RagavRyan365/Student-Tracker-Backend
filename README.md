@@ -26,9 +26,9 @@ Data Base - PostgreSQL
 
 ## Attendance Table
 
-| (Class Code) | (reg code student) | Status P A or OD | (Subject Code) | Date       | Time  |
-| ------------ | ------------------ | ---------------- | -------------- | ---------- | ----- |
-| ITC2026      | 1234567890123456   | P                | IT26CC         | mm-dd-yyyy | 00:00 |
+| (Class Code) | (reg code student) | Status P A or OD | (Subject Code) | Date       |
+| ------------ | ------------------ | ---------------- | -------------- | ---------- |
+| ITC2026      | 1234567890123456   | P                | IT26CC         | mm-dd-yyyy |
 
 ## Subject Table
 
