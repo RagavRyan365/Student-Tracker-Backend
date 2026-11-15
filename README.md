@@ -2,6 +2,28 @@
 Tech - Nodejs + Expressjs.   
 Data Base - PostgreSQL
 
+## Start Server  
+Start - npm start  
+Dev(nodemon) - npm run dev
+
+## Folder Stucture
+    Student-Tracker-Backend/
+    ├── .vscode/
+    │   └── settings.json
+    ├── src/
+    │   ├── config/ ------------------ Data Base Configuration
+    │   │   └── connectDB.js
+    │   ├── repositories/ ------------ Data Base Operations
+    │   │   ├── readDBRepo.js
+    │   │   └── writeDBRepo.js
+    │   └── server.js ---------------- Entry Point
+    ├── .env.example
+    ├── .gitignore
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
+
 # Project DataBase Table Schemes
 
 ## Classes Table
