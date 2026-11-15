@@ -5,14 +5,17 @@ import cors from 'cors';
 dotenv.config();
 
 //Functions from other files
+
 //read repo function import
 import 
 {
   getClassCode,
   getStudentsByClass,
-  getSubjectList
+  getSubjectList,
+  checkAttendanceRecord
 } 
 from "./repositories/readDBRepo.js";
+
 //write repo function import
 import
 {
@@ -37,7 +40,6 @@ app.get('/', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
-
 //Other Route should come here..................................................................
 
 //Fetching Students list from DB based on "Department,Section, and Year"
@@ -68,6 +70,18 @@ app.post("/api/mark/attendance",async(req,res)=>{
   }
 
   return res.status(201).json({message:"Attendance marked Successfully"});
+})
+
+//Is Attendance Already marked?
+app.get("/api/verify/attendance/:subjectCode/:classCode",async(req,res)=>{
+  const {subjectCode,classCode} = req.params;
+  console.log(subjectCode);
+  console.log(classCode);
+  const attendanceChecker = await checkAttendanceRecord(subjectCode,classCode);
+  if(attendanceChecker.rows[0].count === '0'){
+    return res.status(200).json({message:"No attendance marked"});
+  }
+    return res.status(400).json({message:"Attendance is already marked"});
 })
 
 // Catch-all 404
